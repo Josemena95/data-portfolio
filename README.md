@@ -12,3 +12,35 @@ El objetivo de este repositorio es demostrar habilidades prácticas en el manejo
 
 ## Estructura general
 
+data-portfolio/
+│
+├── proyecto-01-nombre-del-caso/
+│ ├── data/
+│ ├── src/
+│ ├── notebooks/
+│ └── README.md
+│
+├── proyecto-02-nombre-del-caso/
+│ ├── data/
+│ ├── src/
+│ ├── notebooks/
+│ └── README.md
+│
+└── README.md
+
+## Tecnologías utilizadas
+Dependiendo del proyecto:
+- Python
+- SQL
+- Excel
+- Power BI / Lookerstudio
+- Pandas, NumPy, Matplotlib, Scikit-learn
+- Modelado y limpieza de datos
+- Automatización y pipelines básicos
+
+## Nota
+Los proyectos aquí presentados se basan en ejercicios académicos que han sido **adaptados, mejorados y documentados como casos prácticos**, con un enfoque profesional y aplicado.
+
+---
+
+📌 *Este repositorio se encuentra en construcción y se actualiza progresivamente.*
