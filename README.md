@@ -12,21 +12,8 @@ El objetivo de este repositorio es demostrar habilidades prácticas en el manejo
 
 ## Estructura general
 
-data-portfolio/
-│
-├── proyecto-01-nombre-del-caso/
-│ ├── data/
-│ ├── src/
-│ ├── notebooks/
-│ └── README.md
-│
-├── proyecto-02-nombre-del-caso/
-│ ├── data/
-│ ├── src/
-│ ├── notebooks/
-│ └── README.md
-│
-└── README.md
+<img width="335" height="335" alt="image" src="https://github.com/user-attachments/assets/a55f154e-860f-42bc-a27b-74592cf10950" />
+
 
 ## Tecnologías utilizadas
 Dependiendo del proyecto:
