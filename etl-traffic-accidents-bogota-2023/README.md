@@ -12,8 +12,10 @@ El proyecto se desarrolló en el contexto de una especialización en Analítica 
 
 ---
 
+
 ## 📁 Estructura del proyecto
 
+```text
 etl-traffic-accidents-bogota-2023/
 ├── data/
 │   ├── raw/        # Datos originales sin transformación
