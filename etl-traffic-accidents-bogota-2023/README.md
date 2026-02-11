@@ -22,7 +22,8 @@ etl-traffic-accidents-bogota-2023/
 │   └── processed/ # Datos procesados listos para análisis y modelado
 ├── notebooks/     # Exploración, ETL y análisis
 └── README.md
-```text
+```
+
 
 ## 🗂️ Origen de los datos
 
