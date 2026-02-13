@@ -96,21 +96,6 @@ Se analiza la frecuencia diaria de personas accidentadas mediante:
 
 ---
 
-## 🧠 Preparación para modelación
-
-El dataset final se prepara para dos enfoques:
-
-### 1. Clasificación de la gravedad del accidente
-- Codificación de la variable objetivo.
-- División del dataset en conjuntos de entrenamiento y prueba (80/20).
-
-### 2. Análisis de series de tiempo
-- Agregación diaria por localidad.
-- Separación de datos en entrenamiento y prueba usando ventanas temporales.
-- Identificación de patrones semanales y anomalías.
-
----
-
 ## 🛠️ Tecnologías utilizadas
 - Python
 - Pandas
