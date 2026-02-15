@@ -70,9 +70,7 @@ Las principales transformaciones realizadas incluyen:
 - **Tratamiento de valores faltantes**, siguiendo las definiciones del diccionario de datos.
 - **Eliminación de registros incompletos y duplicados**.
 - **Reducción de cardinalidad** en variables categóricas mediante agrupación de categorías poco frecuentes.
-- **Separación de variables categóricas y numéricas** para análisis descriptivo.
-- **Codificación de variables categóricas** mediante One-Hot Encoding.
-- **Estandarización de la variable Edad** para su uso en modelos predictivos.
+
 
 ### 3. Carga
 - Construcción de DataFrames finales listos para:
@@ -115,5 +113,4 @@ Se analiza la frecuencia diaria de personas accidentadas mediante:
 
 ---
 
-## 📌 Nota
-Este proyecto se enfoca principalmente en la **preparación y exploración de datos**, sirviendo como base para modelos predictivos que pueden desarrollarse en etapas posteriores.
+
