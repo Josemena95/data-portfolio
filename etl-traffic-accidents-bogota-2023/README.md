@@ -1,13 +1,23 @@
 # ETL Traffic Accidents in Bogotá (2023)
 
 ## 📌 Descripción del proyecto
-Este proyecto desarrolla un proceso **ETL (Extract, Transform, Load)** y un **análisis estadístico descriptivo** a partir de datos públicos de accidentalidad vial en la ciudad de Bogotá durante el año 2023.  
+Este proyecto desarrolla un análisis estadístico exploratorio a partir de datos públicos de accidentalidad vial en la ciudad de Bogotá durante el año 2023.
 
-El objetivo principal es **preparar los datos para tareas de modelación predictiva**, particularmente:
-- Clasificación de la gravedad de los accidentes.
-- Análisis y preparación de series de tiempo sobre la frecuencia diaria de personas accidentadas.
+El objetivo principal es caracterizar el comportamiento de la accidentalidad desde una perspectiva descriptiva y temporal, identificando patrones relevantes en términos territoriales, demográficos y estructurales. Para ello se realiza:
 
-El proyecto se desarrolló en el contexto de una especialización en Analítica y Ciencia de Datos y fue adaptado para su presentación como caso práctico en un portafolio profesional.
+. Análisis de variables categóricas (localidad, tipo de accidente, actor vial, gravedad).
+
+. Análisis de variables numéricas (edad, frecuencia diaria de personas accidentadas).
+
+. Evaluación de la distribución estadística y variabilidad de la serie.
+
+. Análisis de autocorrelación y estacionalidad semanal.
+
+. Identificación de anomalías y picos atípicos.
+
+El enfoque del proyecto es interpretativo y analítico, orientado a comprender la dinámica del fenómeno, sin desarrollar modelos predictivos en esta etapa.
+
+El proyecto fue desarrollado en el contexto de una especialización en Analítica y Ciencia de Datos y posteriormente adaptado como caso práctico para portafolio profesional.
 
 
 ---
