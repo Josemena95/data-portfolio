@@ -12,7 +12,7 @@ El objetivo principal es caracterizar el comportamiento de la accidentalidad des
 * Análisis de autocorrelación y estacionalidad semanal.
 * Identificación de anomalías y picos atípicos.
 
-El enfoque del proyecto es interpretativo y analítico, orientado a comprender la dinámica del fenómeno, sin desarrollar modelos predictivos en esta etapa.
+El enfoque del proyecto es interpretativo y analítico, orientado a comprender la dinámica del fenómeno.
 
 El proyecto fue desarrollado en el contexto de una especialización en Analítica y Ciencia de Datos y posteriormente adaptado como caso práctico para portafolio profesional.
 
