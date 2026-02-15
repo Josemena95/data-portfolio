@@ -26,7 +26,7 @@ El proyecto fue desarrollado en el contexto de una especialización en Analític
 etl-traffic-accidents-bogota-2023/
 ├── data/
 │   ├── raw/        # Datos originales sin transformación
-│   └── processed/ # Datos procesados listos para análisis y modelado
+│   └── processed/ # Datos procesados listos para análisis 
 ├── notebooks/     # Exploración, ETL y análisis
 └── README.md
 ```
