@@ -10,7 +10,7 @@ El objetivo principal es caracterizar el comportamiento de la accidentalidad des
 * Análisis de variables numéricas (edad, frecuencia diaria de personas accidentadas).
 * Evaluación de la distribución estadística y variabilidad de la serie.
 * Análisis de autocorrelación y estacionalidad semanal.
-* Identificación de anomalías y picos atípicos.
+* Identificación de anomalías y picos atípicos
 
 El enfoque del proyecto es interpretativo y analítico, orientado a comprender la dinámica del fenómeno.
 

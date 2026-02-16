@@ -8,7 +8,7 @@ Cada carpeta corresponde a un proyecto independiente e incluye:
 - Documentación del caso (README propio)
 - Resultados y conclusiones
 
-El objetivo de este repositorio es demostrar habilidades prácticas en el manejo de datos, desde la exploración y análisis hasta la construcción de soluciones reproducibles y orientadas a negocio.
+El objetivo de este repositorio es demostrar habilidades prácticas en el manejo de datos, desde la exploración y análisis hasta la construcción de soluciones reproducibles y orientadas a negocio
 
 ## Estructura general
 
