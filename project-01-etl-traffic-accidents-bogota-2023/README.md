@@ -105,7 +105,6 @@ Se analiza la frecuencia diaria de personas accidentadas mediante:
 - Python
 - Pandas
 - NumPy
-- Scikit-learn
 - Matplotlib
 - Seaborn
 - SciPy
