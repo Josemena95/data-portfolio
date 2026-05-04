@@ -1,0 +1,1 @@
+FILE_PATH = "C:\\Users\\josel\\OneDrive\\Escritorio\\etl_sales_project\\data\\raw\\Superstore.csv"
