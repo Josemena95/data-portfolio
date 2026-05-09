@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.pyc
+
+# Entorno
+.env
+
+# Datos generados
+data/processed/
+*.db
+
+# Archivos de prueba
+prueba*.py
+prueba*.ipynb
+
+# Notas / prompts
+prompt*.md
+*_context.md
