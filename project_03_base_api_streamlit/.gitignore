@@ -10,7 +10,7 @@ venv/
 .env
 
 # Datos generados
-data/processed/
+
 *.db
 
 # Archivos de prueba
