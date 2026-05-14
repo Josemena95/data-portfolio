@@ -73,9 +73,7 @@ def filter_accidents_by_locality(localidad: str) -> list[dict]:
 
     if df_locality.empty:
 
-        raise ValueError(
-            f"No se encontraron registros para la localidad: {localidad}"
-        )
+       return []
 
     return df_locality.to_dict(orient="records")
 
