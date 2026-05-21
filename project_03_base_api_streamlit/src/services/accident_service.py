@@ -68,7 +68,7 @@ def filter_accidents_by_locality(localidad: str) -> list[dict]:
 
     df_locality = (
         df[df["Localidad"] == localidad]
-        .head(10)
+        
     )
 
     if df_locality.empty:

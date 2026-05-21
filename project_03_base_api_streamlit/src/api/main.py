@@ -1,33 +1,44 @@
 from fastapi import FastAPI,HTTPException
-from src.services.accident_service import get_total_accidents,get_accidents_by_locality,get_total_fatal_accidents,filter_accidents_by_locality
+from src.services.accident_service import(
+     get_total_accidents,
+     get_accidents_by_locality,
+     get_total_fatal_accidents,
+     filter_accidents_by_locality
+     )
 
 
 app = FastAPI()
 
+
+# Health endpoint
 @app.get("/")
 def home():
      return{"mesange":"API Funcionando"}
 
-@app.get("/total-accidents")
-def total_accidents():
+# KPI endpoints
+
+@app.get("/accidents/total")
+def get_total_accidents_endpoint():
      return get_total_accidents()
 
-@app.get("/fatal-accidents")
-def fatal_accidents():
+@app.get("/accidents/fatal")
+def get_total_fatal_accidents_endpoint():
      return get_total_fatal_accidents()
 
-@app.get("/accidents-by-locality")
-def accidents_by_locality():
+# Agregation endpoints
+@app.get("/accidents/by-locality")
+def get_accidents_by_locality_endpoint():
      return get_accidents_by_locality()
 
-@app.get("/locality/{localidad}")
-def accidents_by_locality(localidad):
+#Dinamic endpoint
+@app.get("/accidents/locality/{localidad}")
+def filter_accidents_by_locality_endpoint(localidad):
      result= filter_accidents_by_locality(localidad)
 
      if not result:
           raise HTTPException(
           status_code=404,
-          detail="No se encontraron registros"
+          detail=f"No se encontraron registros para la localidad{localidad}"
      )
 
      return result 
