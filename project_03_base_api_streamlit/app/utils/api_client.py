@@ -7,7 +7,7 @@ import requests
 BASE_URL = "http://127.0.0.1:8000"
 
 # Helper de proceso response  y tranformacion a Json
-def fetch_data(endpoint:str):
+def fetch_data(endpoint:str, params=None):
     """
     Realiza una solicitud HTTP GET a un endpoint de la API
 y transforma la respuesta en formato JSON.
@@ -22,7 +22,8 @@ Returns:
     try:
 
         response = requests.get(
-            f"{BASE_URL}/{endpoint}"
+            f"{BASE_URL}/{endpoint}",
+            params=params
         )
 
         response.raise_for_status()
