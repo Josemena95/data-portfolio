@@ -593,12 +593,18 @@ Tecnologías contempladas:
 * agentes analíticos
 * consultas inteligentes sobre datos tabulares
 
-Proyecto desarrollado por:
+
+---
+
+Proyecto desarrollado por :
+
 José Luis Mena Palomeque
 
 LinkedIn:
+
 www.linkedin.com/in/josé-luis-mena-42279a26b
 
 
 GitHub:
+
 https://github.com/Josemena95/data-portfolio.git
