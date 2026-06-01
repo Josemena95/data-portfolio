@@ -7,6 +7,7 @@ from components.kpis import render_kpis
 from components.tables import render_table
 from components.charts import render_bar_chart, render_donut_chart, render_treemap_chart
 from components.common import render_section_title
+from utils.theme import SECTION_GAP
 
 # configuracion de pagina
 
@@ -107,9 +108,15 @@ render_header()
 
 
 
-render_section_title("Indicadores generales")
-st.write("")
-st.write("")
+kpi_section = st.container()
+
+with kpi_section:
+
+    render_section_title("Indicadores generales")
+
+    for _ in range(SECTION_GAP):
+        st.write("")
+
 
 # respuesta y transformacion de respuesta a Json
 total_accidents_json=fetch_data("accidents/total",params) 
@@ -151,8 +158,10 @@ accidents_by_locality_json = fetch_data("accidents/by-locality",params=localidad
 
 
 #creaccion columnas del layout
-table_col, chart_col = st.columns([2,3],
-                                  gap="xxlarge")
+table_col, chart_col = st.columns(
+    [1.8, 2.2],
+    gap="large"
+)
 
 
 
@@ -163,18 +172,18 @@ if accidents_by_locality_json is not None:
     
     # Conversión a dataframe
     accidents_by_locality_df = pd.DataFrame(accidents_by_locality_json)
-
     with table_col:
         
+        render_section_title("Tabla accidentes por localidad","h4")
+
         # visualizacion de dataframe
         render_table(accidents_by_locality_df)
 
 
     # grafico de barras de accidentes por localidad
-    top_10_localities = accidents_by_locality_df.head(10) 
+    top_10_localities = accidents_by_locality_df.head(10).sort_values(by="total_accidentes",ascending=True)
+ 
 
-    # preparacion del dataframe para el grafico
-    chart_df = top_10_localities.set_index("Localidad")
 
     with chart_col:
 
@@ -184,14 +193,11 @@ if accidents_by_locality_json is not None:
 
         st.write("")
 
-        render_bar_chart(chart_df)
+        render_bar_chart(top_10_localities)
 
 else:
     st.info("Tabla temporalmente no disponible.")
 
-
-# division 3
-st.divider()
 
 
 
@@ -214,16 +220,16 @@ if accidents_by_locality_json is not None:
     localities = accidents_by_locality_df["Localidad"].to_list()
 
     # Lista de localidades mas opcion de pregunta
-    localities = ["Seleccione una localidad"] + localities
+    localities = ["Consultar localidad específica"] + localities
 
     # Creacion de selectbox
     selected_locality = st.selectbox(
-        "Seleccione una localidad",
+        "Consultar localidad específica",
         options=localities
     )
 
     #condicional  que limita el uso del fetch
-    if selected_locality != "Seleccione una localidad":
+    if selected_locality != "Consultar localidad específica":
 
         # Creacion de ruta endpoint 
         endpoint = f"accidents/locality/{selected_locality}"
@@ -267,8 +273,10 @@ st.divider()
 
 
 #creacion columnas del layout
-donut_chart_gravedad, donut_chart_sexo = st.columns([1,1],
-                                  gap="xxlarge")
+donut_chart_gravedad, donut_chart_sexo = st.columns(
+    [1.2,1.2],
+    gap="large"
+)
 
 with donut_chart_gravedad:
     render_section_title("Distribución por gravedad","h3")
@@ -308,8 +316,8 @@ st.divider()
 
 #creaccion columnas del layout
 condition_chart, accident_type_chart = st.columns(
-    [1,1],
-    gap="xxlarge"
+    [1.3,1],
+    gap="large"
 )
 
 with condition_chart:
@@ -353,7 +361,7 @@ with accident_type_chart:
         "h3"
     )
 
-    st.markdown("<br><br><br>", unsafe_allow_html=True)
+    st.write("")
 
     accidents_by_type_json = fetch_data(
         "/accidents/by-accident-type",params
@@ -365,7 +373,6 @@ with accident_type_chart:
             accidents_by_type_json
         )
 
-        accidents_by_type_df=accidents_by_type_df.set_index("tipo_accidente")
         
         render_bar_chart(
             accidents_by_type_df

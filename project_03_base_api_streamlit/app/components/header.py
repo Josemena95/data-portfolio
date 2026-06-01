@@ -1,5 +1,13 @@
 import streamlit as st
 
+from utils.theme import (
+    HEADER_TITLE,
+    HEADER_SUBTITLE,
+    HEADER_TITLE_SIZE,
+    HEADER_SUBTITLE_SIZE
+)
+
+
 def render_header():
     """
     Renderiza el encabezado principal del dashboard,
@@ -8,28 +16,33 @@ def render_header():
     """
 
     st.markdown(
-        """
-        <h1 style='
-            text-align:center;
-            margin-bottom:15px;
-        '>
-        Dashboard Analítico de Accidentes
-        </h1>
-        """,
-        unsafe_allow_html=True
-    )
+            f"""
+    <div style="text-align:center;">
 
-    st.write("")
+    <h1 style="
+    margin-bottom:10px;
+    font-size:{HEADER_TITLE_SIZE};
+    ">
 
-    #descripcion del dashboard 
-    st.markdown(
-        """
-        <p style='text-align:center;'>
-        Visualización analítica de accidentalidad vial en Bogotá
-        mediante arquitectura basada en SQLite, FastAPI y Streamlit.
-        </p>
-        """,
-        unsafe_allow_html=True
-    )
-    #division 1
+    🚦 {HEADER_TITLE}
+
+    </h1>
+
+    <p style="
+    font-size:{HEADER_SUBTITLE_SIZE};
+    color:#6B7280;
+    max-width:900px;
+    margin:auto;
+    line-height:1.7;
+    ">
+
+    {HEADER_SUBTITLE}
+
+    </p>
+
+    </div>
+    """,
+            unsafe_allow_html=True
+        )
+
     st.divider()

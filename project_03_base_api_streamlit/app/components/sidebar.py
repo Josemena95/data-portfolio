@@ -1,17 +1,17 @@
 import streamlit as st
 
-
-
-import streamlit as st
-
+from utils.theme import (
+    SIDEBAR_TITLE,
+    SIDEBAR_DESCRIPTION
+)
 
 def render_sidebar(
     api_status: bool,
     localidades: list[str] | None = None,
     condiciones: list[str] | None = None,
-    sexo: list[str]|None = None,
-    horario: list[str]|None = None
-) -> tuple[str, str,str,str] | None:
+    sexo: list[str] | None = None,
+    horario: list[str] | None = None
+) -> tuple[str, str, str, str] | None:
 
     """
     Renderiza el sidebar del dashboard incluyendo:
@@ -51,66 +51,63 @@ def render_sidebar(
         Retorna None si la API no está disponible.
     """
 
-    st.sidebar.title(
-        "🛣️ Dashboard Analítico"
-    )
+    with st.sidebar:
 
-    st.sidebar.markdown(
-        """
-        Aplicación interactiva de consulta
-        de accidentalidad vial.
-        """
-    )
-
-    st.sidebar.divider()
-
-    st.sidebar.subheader(
-        "Estado API"
-    )
-
-    if not api_status:
-
-        st.sidebar.markdown(
-            "🔴 API Desconectada"
+        st.title(
+            SIDEBAR_TITLE
         )
 
-        return None
+        st.caption(
+            SIDEBAR_DESCRIPTION
+        )
 
-    st.sidebar.markdown(
-        "🟢 API Conectada"
-    )
+        st.divider()
 
-    st.sidebar.divider()
+        st.subheader(
+            "Estado servicio API"
+        )
 
-    st.sidebar.subheader(
-        "Filtros globales"
-    )
+        if not api_status:
 
-    selected_localidad = st.sidebar.selectbox(
-        "Seleccione una localidad",
-        options=["Todas"] + localidades
-    )
+            st.error(
+                "API desconectada"
+            )
 
-    selected_condicion = st.sidebar.selectbox(
-        "Seleccione una condición",
-        options=["Todas"] + condiciones
-    )
+            return None
 
-    selected_sexo = st.sidebar.selectbox(
-        "Seleccione un sexo",
-        options=["Todos"] + sexo
-    )
+        st.success(
+            "API conectada"
+        )
 
-    selected_horario = st.sidebar.selectbox(
-        "Seleccione un horario",
-        options=["Todos"] + horario
-    )
+        st.divider()
+
+        st.subheader(
+            "Filtros globales"
+        )
+
+        selected_localidad = st.selectbox(
+            "📍 Localidad",
+            options=["Todas"] + localidades
+        )
+
+        selected_condicion = st.selectbox(
+            "⚠️ Condición",
+            options=["Todas"] + condiciones
+        )
+
+        selected_sexo = st.selectbox(
+            "👤 Sexo",
+            options=["Todos"] + sexo
+        )
+
+        selected_horario = st.selectbox(
+            "🕒 Horario",
+            options=["Todos"] + horario
+        )
+
     return (
         selected_localidad,
         selected_condicion,
         selected_sexo,
         selected_horario
     )
-
-
-

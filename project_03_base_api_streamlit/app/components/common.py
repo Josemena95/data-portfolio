@@ -1,4 +1,10 @@
 import streamlit as st
+from utils.theme import (
+    SECTION_TITLE_COLOR,
+    SECTION_TITLE_MARGIN,
+    SECTION_TITLE_WEIGHT,
+    SECTION_TITLE_SIZE
+)
 
 def render_section_title(
         titulo:str,
@@ -20,11 +26,16 @@ def render_section_title(
 
     st.markdown(
         f"""
-        <{nivel} style='
+        <{nivel} style="
             text-align:center;
-            margin-bottom:15px;
-        '>
-        {titulo}
+            margin-bottom:{SECTION_TITLE_MARGIN};
+            color:{SECTION_TITLE_COLOR};
+            font-weight:{SECTION_TITLE_WEIGHT};
+            font-size:{SECTION_TITLE_SIZE};
+        ">
+
+            {titulo}
+
         </{nivel}>
         """,
         unsafe_allow_html=True

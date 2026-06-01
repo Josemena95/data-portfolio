@@ -1,36 +1,99 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
+from utils.theme import (
+    CHART_HEIGHT,
+    CHART_MARGIN,
+    CHART_COLORWAY,
+    PLOTLY_TEMPLATE,
+    FONT_FAMILY,
+    FONT_SIZE,
+    TITLE_X,
+    BAR_SHOW_LEGEND,
+    DONUT_SHOW_LEGEND,
+    TREEMAP_SHOW_LEGEND
+)
 
 
-def render_bar_chart(dataframe:pd.DataFrame,horizontal:bool = True):
+def render_bar_chart(
+    dataframe: pd.DataFrame,
+    horizontal: bool = True,
+    title: str | None = None
+):
     """
     Renderiza un gráfico de barras a partir
     de un DataFrame preparado previamente.
 
     Args:
+
         dataframe (pd.DataFrame):
             DataFrame utilizado para construir
             el gráfico.
-        sentido str:
-        sentido del grafico de barras True si es horizontal, False si es 
-        vertical
 
-        sentido (bool):
-            Orientación del gráfico.
+        horizontal (bool):
 
-            True  -> horizontal
-            False -> vertical
+            True  -> gráfico horizontal
+            False -> gráfico vertical
     """
 
-    st.bar_chart(dataframe,horizontal=horizontal)
+    x_col = dataframe.columns[0]
+    y_col = dataframe.columns[1]
 
+    if horizontal:
+
+        x = y_col
+        y = x_col
+        orientation = "h"
+
+    else:
+
+        x = x_col
+        y = y_col
+        orientation = "v"
+
+    fig = px.bar(
+        dataframe,
+        x=x,
+        y=y,
+        orientation=orientation,
+        color_discrete_sequence=CHART_COLORWAY
+    )
+
+    fig.update_layout(
+
+    template=PLOTLY_TEMPLATE,
+
+    height=CHART_HEIGHT,
+
+    margin=CHART_MARGIN,
+
+    font=dict(
+        family=FONT_FAMILY,
+        size=FONT_SIZE
+    ),
+
+ 
+
+    
+
+    showlegend=BAR_SHOW_LEGEND
+)
+
+    fig.update_traces(
+    hovertemplate="%{x}<extra></extra>"
+)
+
+    st.plotly_chart(
+    fig,
+    use_container_width=True
+)
     
 
 def render_donut_chart(
     dataframe: pd.DataFrame,
     names: str,
     values: str,
+    title: str |None = None
 ):
     """
     Renderiza un gráfico donut a partir
@@ -54,23 +117,52 @@ def render_donut_chart(
         dataframe,
         names=names,
         values=values,
-        hole=0.45
+        hole=0.45,
+        color_discrete_sequence=CHART_COLORWAY
     )
 
     fig.update_traces(
-    textposition="outside",
-    textinfo="percent+label"
-)
 
-    st.plotly_chart(
-    fig,
-    use_container_width=True
+    textposition="outside",
+
+    textinfo="percent+label",
+
+    pull=[0.02]*len(dataframe)
+    )
+
+    fig.update_layout(
+
+
+    template=PLOTLY_TEMPLATE,
+
+    height=CHART_HEIGHT,
+
+    margin=CHART_MARGIN,
+
+    font=dict(
+        family=FONT_FAMILY,
+        size=FONT_SIZE
+    ),
+
+    legend=dict(
+        orientation="h",
+        y=-0.15,
+        x=0.5,
+        xanchor="center"
+    ),
+
+    showlegend=DONUT_SHOW_LEGEND
 )
+    st.plotly_chart(
+        fig,
+        use_container_width=True
+    )
     
 def render_treemap_chart(
     dataframe: pd.DataFrame,
     names: str,
-    values: str
+    values: str,
+    title:str|None = None
 ):
     """
     Renderiza un gráfico treemap a partir
@@ -93,14 +185,37 @@ def render_treemap_chart(
     fig = px.treemap(
         dataframe,
         path=[names],
-        values=values
+        values=values,
+        color_discrete_sequence=CHART_COLORWAY
     )
 
-    
     fig.update_traces(
-    textinfo="label+percent entry"
+
+    textinfo="label+percent entry",
+
+    textfont_size=14
+    )
+
+    fig.update_layout(
+
+
+
+    template=PLOTLY_TEMPLATE,
+
+    height=CHART_HEIGHT,
+
+    margin=CHART_MARGIN,
+
+    font=dict(
+        family=FONT_FAMILY,
+        size=FONT_SIZE
+    ),
+
+    showlegend=TREEMAP_SHOW_LEGEND
+
+    
 )
     st.plotly_chart(
         fig,
-        use_container_width=True
-    )
+        use_container_width=True)
+    
